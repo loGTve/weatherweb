@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {CSSProperties} from 'react';
+import styled from 'styled-components';
+
+import './sub/callweather.ts';
+import ColdBG from './image/ColdBg.jpg';
+import WormBG from './image/WormBg.jpg';
+
+const FontBox = styled.div`
+  flex: 1;
+  font-family: "Roboto-italic";
+  font-size: 30px;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <FontBox>
+          <img src={WormBG} className={WormBG}/>
+          <header>
+              <div>
+                  날씨
+              </div>
+          </header>
+          <body>
+          <div>
+              날씨2
+          </div>
+          </body>
+      </FontBox>
+
   );
 }
 
