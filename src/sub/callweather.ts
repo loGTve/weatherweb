@@ -1,16 +1,23 @@
-import axios from "axios";
+import axios from 'axios';
 
-interface WeatherData {
-    City: string;
+type WeatherData = {
+    temp: number;
+    clouds: number;
     Weather: string;
+    dt_txt: string;
+    temp_min: number;
+    temp_max: number;
 }
 
-
-const WeatherApi = axios.create({
-    baseURL: 'api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=xml&units=metric&cnt=7&appid=78e51bed98e9822ef3a11410e31c8333',
-    timeout: 10000
-})
-
-export function Weatherm(id: string) {
-    return WeatherApi.get;
+type wind = {
+    speed: number;
+    deg: number;
 }
+
+async function Weathercall(){
+const response = await axios.get(
+    `http://api.openweathermap.org/data/2.5/forecast?q=seoul&cnt=3&appid=a0ec87e9b660428c2d1a0e9ef0cddfc4`);
+return response;
+}
+
+console.log(Weathercall);
