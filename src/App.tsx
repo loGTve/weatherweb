@@ -7,19 +7,61 @@ interface WeatherResponse{
     data: WeatherData
 }
 
-type WeatherData = {
+
+
+
+
+type main = {
     temp: number;
-    clouds: number;
-    Weather: string;
-    dt_txt: string;
+    feels_like: number;
     temp_min: number;
     temp_max: number;
+    pressure: number;
+    sea_level: number;
+    grnd_level: number;
+    humidity: number;
+    temp_kf: number;
 }
 
+type weather = {
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
+}
+
+type clouds = {
+    all: number;
+}
+
+type wind = {
+    speed: number;
+    deg: number;
+}
+type city = {
+    id: number;
+    name: string;
+    country: string;
+    population: number;
+    timezone: number;
+    sunrise: number;
+    sunset: number;
+}
+
+type coord = {
+    lat: number;
+    lon: number;
+}
+
+type WeatherData = {
+    cod: string;
+    message: number;
+    cnt: number;
+}
 function WeatherCall(){
 
     const UrlApi = `http://api.openweathermap.org/data/2.5/forecast?q=seoul&cnt=1&appid=a0ec87e9b660428c2d1a0e9ef0cddfc4`;
-    const Weathers = axios.get<{temp: number; temp_min: number;}>(UrlApi)
+    const Weathers = axios.get<{}>(UrlApi)
         .then((data) => data.data)
         .catch((err) => console.error(err));
 
