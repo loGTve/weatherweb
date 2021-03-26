@@ -1,73 +1,18 @@
 import React, {CSSProperties, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+
+import WeatherShow from './sub/WeatherShowPage';
+
+//import but not used
 import {Search} from '@styled-icons/boxicons-regular/Search';
 
-interface WeatherResponse{
-    data: WeatherData
-}
-
-
-
-
-
-type main = {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    sea_level: number;
-    grnd_level: number;
-    humidity: number;
-    temp_kf: number;
-}
-
-type weather = {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-}
-
-type clouds = {
-    all: number;
-}
-
-type wind = {
-    speed: number;
-    deg: number;
-}
-type city = {
-    id: number;
-    name: string;
-    country: string;
-    population: number;
-    timezone: number;
-    sunrise: number;
-    sunset: number;
-}
-
-type coord = {
-    lat: number;
-    lon: number;
-}
-
-type WeatherData = {
-    cod: string;
-    message: number;
-    cnt: number;
-}
-function WeatherCall(){
-
-    const UrlApi = `http://api.openweathermap.org/data/2.5/forecast?q=seoul&cnt=1&appid=a0ec87e9b660428c2d1a0e9ef0cddfc4`;
-    const Weathers = axios.get<{}>(UrlApi)
-        .then((data) => data.data)
-        .catch((err) => console.error(err));
-
-
-    return Weathers;
-}
+//Icons
+import CloudSleetFill from '@styled-icons/bootstrap/CloudSleetFill';
+import WeatherSunny from '@styled-icons/bootstrap/CloudSleetFill';
+import Rainy from '@styled-icons/bootstrap/CloudSleetFill';
+import Typhoon from '@styled-icons/bootstrap/CloudSleetFill';
+import Thunderstorm from '@styled-icons/ionicons-outline/Thunderstorm';
 
 
 
@@ -90,8 +35,14 @@ const SearchBar = styled.input`
   padding: 15px;
   text-align: left;
   border-radius: 25px;
-  background: #ffffff;
+  font-size: 15px;
+  background: rgba(162, 162, 162, 0.6);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.5);
+  width: 500px;
+  top:50%;
+  left:50%;
+  position:absolute;
+  transform: translate(-50%, 25%);
 `
 
 const Box = styled.div`
@@ -111,18 +62,12 @@ const SearchIcon = styled(Search)`
 `
 
 
+
 function App(){
 
     return (
         <Container>
-            <FontBox>
-                <div>
-                   aa
-                </div>
-                <Box>
-                    <SearchBar type={"text"}/>
-                </Box>
-            </FontBox>
+                    <SearchBar/>
         </Container>
     );
 }
