@@ -1,6 +1,13 @@
 import react from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+
+//Icons
+import CloudSleetFill from '@styled-icons/bootstrap/CloudSleetFill';
+import WeatherSunny from '@styled-icons/bootstrap/CloudSleetFill';
+import Rainy from '@styled-icons/bootstrap/CloudSleetFill';
+import Typhoon from '@styled-icons/bootstrap/CloudSleetFill';
+import Thunderstorm from '@styled-icons/ionicons-outline/Thunderstorm';
+
 
 
 const WeatherShowBox = styled.div`
@@ -12,13 +19,10 @@ const WeatherShowBox = styled.div`
 
   height: 500px;
   width: 300px;
-  top:50%;
   left:50%;
   position:absolute;
   transform: translate(-50%, 25%);
 `
-
-
 
 
 function WeatherInfoPage() {
@@ -26,5 +30,6 @@ function WeatherInfoPage() {
     <WeatherShowBox/>
     )
 }
+
 
 export default WeatherInfoPage;
