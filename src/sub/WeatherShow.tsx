@@ -1,5 +1,8 @@
-import react from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+import DataWea from "./api";
+
 
 //Icons
 import CloudSleetFill from '@styled-icons/bootstrap/CloudSleetFill';
@@ -7,7 +10,6 @@ import WeatherSunny from '@styled-icons/bootstrap/CloudSleetFill';
 import Rainy from '@styled-icons/bootstrap/CloudSleetFill';
 import Typhoon from '@styled-icons/bootstrap/CloudSleetFill';
 import Thunderstorm from '@styled-icons/ionicons-outline/Thunderstorm';
-
 
 
 const WeatherShowBox = styled.div`
@@ -24,12 +26,21 @@ const WeatherShowBox = styled.div`
   transform: translate(-50%, 25%);
 `
 
+const Texts = styled.div`
+    text-align: center;
+  font-size: 30px;
+`
+
 
 function WeatherInfoPage() {
     return (
-    <WeatherShowBox/>
+        <WeatherShowBox>
+            <Texts>
+                현재 날씨입니다.
+            </Texts>
+            <DataWea/>
+        </WeatherShowBox>
     )
 }
-
 
 export default WeatherInfoPage;

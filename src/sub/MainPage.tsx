@@ -1,11 +1,10 @@
 import React, {CSSProperties, useEffect, useState} from 'react';
 import styled from 'styled-components';
 
+import WeatherShow from './WeatherShow';
 
 //Import but not used
 import {Search} from '@styled-icons/boxicons-regular/Search';
-
-
 
 
 
@@ -15,12 +14,13 @@ const Container = styled.div`
   position: relative;
   margin: 0;
   padding: 0;
-  
 `
 
 const FontBox = styled.div`
   font-family: "Roboto Light";
-  font-size: 50px;
+  font-size: 40px;
+  margin-left: 35%;
+  margin-top: 18%;
 `
 
 const SearchBar = styled.input`
@@ -31,7 +31,7 @@ const SearchBar = styled.input`
   background: rgba(200, 200, 200, 0.5);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.5);
   width: 500px;
-  top:50%;
+  top:100%;
   left:50%;
   position:absolute;
   transform: translate(-50%, 25%);
@@ -54,8 +54,6 @@ const SearchIcon = styled(Search)`
 `
 
 
-const onClick = (a:any) => {
-}
 
 
 const pressEnter = (e: any) => {
@@ -64,15 +62,33 @@ const pressEnter = (e: any) => {
 }
 
 
-function MainWeather(){
 
-    return (
-        <Container>
-            <FontBox>
-                <SearchBar onChange={onClick} onKeyPress={pressEnter}/>
-            </FontBox>
-        </Container>
-    );
+
+
+export default class MainWeather extends React.Component {
+    state = {
+        cityss: "seoul",
+    };
+
+    handleChange = (e)  => {
+        this.setState({
+                cityss: e.target.value,
+            }
+        );
+    }
+
+    render() {
+        return (
+
+            <Container>
+                <FontBox>
+                    <div>
+                        도시 이름
+                    </div>
+                    <SearchBar onChange={this.handleChange} onKeyPress={pressEnter}/>
+                </FontBox>
+            </Container>
+
+        );
+    }
 }
-
-export default MainWeather;
